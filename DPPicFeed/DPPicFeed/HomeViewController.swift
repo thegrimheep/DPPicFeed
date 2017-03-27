@@ -31,7 +31,9 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         //this allows funcionality to dismiss the imageview.
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        print("Info: \(info)")
+        
+        self.imageView.image = info["UIImagePickerControllerOriginalImage"] as? UIImage
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func imageTapped(_ sender: Any) {
