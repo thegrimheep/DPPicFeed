@@ -75,16 +75,37 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             return
         }
         let alertController = UIAlertController(title: "Filter", message: "Please select a filter", preferredStyle: .alert)
+        
         let blackAndWhiteAction = UIAlertAction(title: "Black and White", style: .default) { (action) in
             Filters.filter(name: .blackAndWhite, image: image, completion: { (filteredImage) in
                 self.imageView.image = filteredImage
             })
         }
+        
         let vintageAction = UIAlertAction(title: "Vintage", style: .default) { (action) in
             Filters.filter(name: .vintage, image: image, completion: { (filteredImage) in
                 self.imageView.image = filteredImage
             })
         }
+        
+        let makeDarkerAction = UIAlertAction(title: "Darker", style: .default) { (action) in
+            Filters.filter(name: .makeDarker, image: image, completion: { (filteredImage) in
+                self.imageView.image = filteredImage
+            })
+        }
+        
+        let monoChromeAction = UIAlertAction(title: "Monochrome", style: .default) { (action) in
+            Filters.filter(name: .monoChrome, image: image, completion: { (filteredImage) in
+                self.imageView.image = filteredImage
+            })
+        }
+        
+        let comicEffectAction = UIAlertAction(title: "Comic", style: .default) { (action) in
+            Filters.filter(name: .comicEffect, image: image, completion: { (filteredImage) in
+                self.imageView.image = filteredImage
+            })
+        }
+        
         let resetAction = UIAlertAction(title: "Reset Image", style: .destructive) { (action) in
             self.imageView.image = Filters.orignalImage
             }
@@ -93,6 +114,9 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         alertController.addAction(blackAndWhiteAction)
         alertController.addAction(vintageAction)
+        alertController.addAction(makeDarkerAction)
+        alertController.addAction(monoChromeAction)
+        alertController.addAction(comicEffectAction)
         alertController.addAction(resetAction)
         alertController.addAction(cancelAction)
         
