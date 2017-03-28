@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Bi0-Zz-AoF">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home View Controller-->
+        <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="DPPicFeed" customModuleProvider="target" sceneMemberID="viewController">
@@ -39,19 +39,34 @@
                                     <action selector="postButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3jD-gD-Ebi"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z2b-rJ-E71">
+                                <rect key="frame" x="51.666666666666657" y="844" width="310.66666666666663" height="30"/>
+                                <color key="backgroundColor" red="0.11231491139999999" green="0.23595618360000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="FILTER">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="filterButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2ln-is-3F6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="dpj-qj-4BI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FZ2-My-TAm"/>
                             <constraint firstItem="Opg-hp-Ohx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="K68-Ec-Zx6"/>
                             <constraint firstItem="Opg-hp-Ohx" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.75" id="Pjl-K2-afN"/>
+                            <constraint firstItem="z2b-rJ-E71" firstAttribute="top" secondItem="Opg-hp-Ohx" secondAttribute="bottom" constant="200" id="Ppu-i8-DAB"/>
                             <constraint firstItem="Opg-hp-Ohx" firstAttribute="top" secondItem="dpj-qj-4BI" secondAttribute="bottom" constant="8" id="RJ4-rT-ahD"/>
                             <constraint firstItem="Opg-hp-Ohx" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="RxS-Ze-aF6"/>
                             <constraint firstItem="dpj-qj-4BI" firstAttribute="width" secondItem="Opg-hp-Ohx" secondAttribute="width" id="UYa-vM-fmR"/>
+                            <constraint firstItem="z2b-rJ-E71" firstAttribute="centerX" secondItem="Opg-hp-Ohx" secondAttribute="centerX" id="a8P-ra-Tc4"/>
+                            <constraint firstItem="z2b-rJ-E71" firstAttribute="width" secondItem="Opg-hp-Ohx" secondAttribute="width" id="kME-53-NWg"/>
                             <constraint firstItem="Opg-hp-Ohx" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.75" id="qBe-AA-PhO"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="neJ-1r-Cot"/>
                     <connections>
+                        <outlet property="filterButtonTopConstraint" destination="Ppu-i8-DAB" id="Lf9-A0-ahM"/>
                         <outlet property="imageView" destination="Opg-hp-Ohx" id="jx7-Jl-kfP"/>
                     </connections>
                 </viewController>
@@ -62,7 +77,24 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-75" y="114"/>
+            <point key="canvasLocation" x="831.88405797101461" y="113.31521739130436"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="ouL-i2-y60">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Bi0-Zz-AoF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Iye-IB-VtG">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Rep-KE-Wfk"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IIL-7Q-EFn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-75.362318840579718" y="113.31521739130436"/>
         </scene>
     </scenes>
     <resources>

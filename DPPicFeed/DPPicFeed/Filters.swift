@@ -11,6 +11,7 @@ import UIKit
 enum FilterName : String {
     case vintage = "CIPhotoEffectTransfer"
     case blackAndWhite = "CIPhotoEffectMono"
+   
     
     //add 3 more filters here
 }
@@ -40,7 +41,10 @@ class Filters {
                 fatalError("Failed to get output image from filter")
             }
             if let cgImage = ciContext.createCGImage(outputImage, from: outputImage.extent) {
-                let finalImage = UIImage(cgImage: cgImage)
+                let orientation = image.imageOrientation
+                let scale = image.scale
+                
+                let finalImage = UIImage(cgImage: cgImage, scale: scale, orientation: orientation)
                 OperationQueue.main.addOperation {
                     completion(finalImage)
                 }
@@ -52,5 +56,4 @@ class Filters {
             }
         }
     }
-    
 }
