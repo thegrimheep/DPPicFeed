@@ -14,6 +14,9 @@
 		A1708B561E89801200BDD951 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1708B551E89801200BDD951 /* CloudKit.framework */; };
 		A1708B5C1E8984F000BDD951 /* CloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1708B5B1E8984F000BDD951 /* CloudKit.swift */; };
 		A1708B5E1E898D4E00BDD951 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1708B5D1E898D4E00BDD951 /* HomeViewController.swift */; };
+		A1708B601E8AD0E500BDD951 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1708B5F1E8AD0E500BDD951 /* Post.swift */; };
+		A1708B621E8AD36F00BDD951 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1708B611E8AD36F00BDD951 /* UIExtensions.swift */; };
+		A1708B641E8AE71C00BDD951 /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1708B631E8AE71C00BDD951 /* Filters.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +30,9 @@
 		A1708B551E89801200BDD951 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		A1708B5B1E8984F000BDD951 /* CloudKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKit.swift; sourceTree = "<group>"; };
 		A1708B5D1E898D4E00BDD951 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A1708B5F1E8AD0E500BDD951 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		A1708B611E8AD36F00BDD951 /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
+		A1708B631E8AE71C00BDD951 /* Filters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,9 @@
 		A1708B5A1E89825700BDD951 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A1708B631E8AE71C00BDD951 /* Filters.swift */,
+				A1708B5F1E8AD0E500BDD951 /* Post.swift */,
+				A1708B611E8AD36F00BDD951 /* UIExtensions.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -197,6 +206,9 @@
 				A1708B5C1E8984F000BDD951 /* CloudKit.swift in Sources */,
 				A1708B421E897F0300BDD951 /* AppDelegate.swift in Sources */,
 				A1708B5E1E898D4E00BDD951 /* HomeViewController.swift in Sources */,
+				A1708B641E8AE71C00BDD951 /* Filters.swift in Sources */,
+				A1708B621E8AD36F00BDD951 /* UIExtensions.swift in Sources */,
+				A1708B601E8AD0E500BDD951 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +374,7 @@
 				A1708B521E897F0300BDD951 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
