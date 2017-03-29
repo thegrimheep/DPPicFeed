@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Post-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="DPPicFeed" customModuleProvider="target" sceneMemberID="viewController">
@@ -64,7 +64,7 @@
                             <constraint firstItem="Opg-hp-Ohx" firstAttribute="top" secondItem="dpj-qj-4BI" secondAttribute="bottom" constant="8" id="scI-Aw-NPp"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="neJ-1r-Cot"/>
+                    <tabBarItem key="tabBarItem" title="Post" id="neJ-1r-Cot"/>
                     <connections>
                         <outlet property="filterButtonTopConstraint" destination="Ppu-i8-DAB" id="Lf9-A0-ahM"/>
                         <outlet property="imageView" destination="Opg-hp-Ohx" id="jx7-Jl-kfP"/>
@@ -77,7 +77,71 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="831.88405797101461" y="113.31521739130436"/>
+            <point key="canvasLocation" x="945" y="-268"/>
+        </scene>
+        <!--Gallery-->
+        <scene sceneID="90R-pY-tEt">
+            <objects>
+                <viewController id="X3v-Pl-tcZ" customClass="GalleryViewController" customModule="DPPicFeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qVp-cj-P8K"/>
+                        <viewControllerLayoutGuide type="bottom" id="h92-n6-QH0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rmH-SP-maQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fql-Z5-VJF">
+                                <rect key="frame" x="0.0" y="20" width="414" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eRQ-tM-GcE">
+                                    <size key="itemSize" width="146" height="131"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GalleryCell" id="oji-5I-cof" customClass="GalleryCell" customModule="DPPicFeed" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="146" height="131"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="146" height="131"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DEf-xk-2SI">
+                                                    <rect key="frame" x="0.0" y="0.0" width="146" height="131"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="DEf-xk-2SI" firstAttribute="leading" secondItem="oji-5I-cof" secondAttribute="leading" id="KO1-Z7-6qN"/>
+                                            <constraint firstAttribute="trailing" secondItem="DEf-xk-2SI" secondAttribute="trailing" id="YIA-C8-GeS"/>
+                                            <constraint firstAttribute="bottom" secondItem="DEf-xk-2SI" secondAttribute="bottom" id="a5Q-m3-0EE"/>
+                                            <constraint firstItem="DEf-xk-2SI" firstAttribute="top" secondItem="oji-5I-cof" secondAttribute="top" id="uJY-qQ-eRP"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="DEf-xk-2SI" id="NGH-Ma-rG6"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="h92-n6-QH0" firstAttribute="top" secondItem="fql-Z5-VJF" secondAttribute="bottom" id="PRO-c8-YMQ"/>
+                            <constraint firstItem="fql-Z5-VJF" firstAttribute="top" secondItem="qVp-cj-P8K" secondAttribute="bottom" id="cFN-10-AFV"/>
+                            <constraint firstItem="fql-Z5-VJF" firstAttribute="leading" secondItem="rmH-SP-maQ" secondAttribute="leading" id="oVa-8g-yhp"/>
+                            <constraint firstAttribute="trailing" secondItem="fql-Z5-VJF" secondAttribute="trailing" id="rUD-mx-S15"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Gallery" id="9yc-d5-vhR"/>
+                    <connections>
+                        <outlet property="collectionView" destination="fql-Z5-VJF" id="wwA-jg-IRA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rDx-4E-jlk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="944.92753623188412" y="483.42391304347831"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ouL-i2-y60">
@@ -85,11 +149,13 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Bi0-Zz-AoF" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Iye-IB-VtG">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Rep-KE-Wfk"/>
+                        <segue destination="X3v-Pl-tcZ" kind="relationship" relationship="viewControllers" id="pOJ-kw-aOE"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IIL-7Q-EFn" userLabel="First Responder" sceneMemberID="firstResponder"/>

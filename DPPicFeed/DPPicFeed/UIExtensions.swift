@@ -24,4 +24,10 @@ extension UIImage {
     }
 }
 
+extension UIResponder {
+    static var identifier : String {
+        return String(describing: self)
+    }
+}
+
 //Save this code, this will be reused for image processing.
