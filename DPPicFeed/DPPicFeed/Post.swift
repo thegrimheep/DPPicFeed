@@ -11,8 +11,10 @@ import CloudKit
 
 class Post {
     let image: UIImage
-    init(image: UIImage) {
+    let creationDate: Date?
+    init(image: UIImage, creationDate: Date?) {
         self.image = image
+        self.creationDate = creationDate
     }
 }
 

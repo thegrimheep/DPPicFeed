@@ -8,20 +8,21 @@
 
 import UIKit
 
-enum FilterName : String {
-    case vintage = "CIPhotoEffectTransfer"
-    case blackAndWhite = "CIPhotoEffectMono"
-    case makeDarker = "CIColorPolynomial"
-    case monoChrome = "CIColorMonochrome"
-    case comicEffect = "CIColorPosterize"
-   
-    
-    //add 3 more filters here
-}
-
-typealias FilterCompletion = (UIImage?) -> ()
 
 class Filters {
+    enum FilterName : String {
+        case vintage = "CIPhotoEffectTransfer"
+        case blackAndWhite = "CIPhotoEffectMono"
+        case makeDarker = "CIColorPolynomial"
+        case monoChrome = "CIColorMonochrome"
+        case comicEffect = "CIColorPosterize"
+        //add 3 more filters here
+    }
+typealias FilterCompletion = (UIImage?) -> ()
+
+    
+//    static let shared
+    
     static var orignalImage = UIImage()
     //Access this by calling Filters.originalImage
     class func filter(name: FilterName, image: UIImage, completion: @escaping FilterCompletion) {
