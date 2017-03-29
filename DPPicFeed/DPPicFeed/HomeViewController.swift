@@ -25,15 +25,11 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     override func viewDidAppear(_ animated: Bool) {
         filterButtonTopConstraint.constant = 8
-        postButtonBottomConstraint.constant = 8
         
         UIView.animate(withDuration: 1.0) {
         self.view.layoutIfNeeded()
         }
         
-        UIView.animate(withDuration: 1.0) {
-            self.view.layoutIfNeeded()
-        }
     }
     
     func presentImagePickerWith(sourceType: UIImagePickerControllerSourceType) {
