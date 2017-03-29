@@ -14,14 +14,22 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var filterButtonTopConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var postButtonBottomConstraint: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         //This is override because we are overriding the superclass
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
     
+    
     override func viewDidAppear(_ animated: Bool) {
         filterButtonTopConstraint.constant = 8
+        postButtonBottomConstraint.constant = 8
+        
+        UIView.animate(withDuration: 1.0) {
+        self.view.layoutIfNeeded()
+        }
         
         UIView.animate(withDuration: 1.0) {
             self.view.layoutIfNeeded()
@@ -143,7 +151,4 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         self.present(actionSheetController, animated: true, completion: nil)
     }
-
-
-
 }
