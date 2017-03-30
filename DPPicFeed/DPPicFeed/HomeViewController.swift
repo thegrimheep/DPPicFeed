@@ -58,10 +58,12 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         //this is for the imagePickerController, see docs for options
         
     }
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.dismiss(animated: true, completion: nil)
         //this allows funcionality to dismiss the imageview.
     }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
@@ -93,6 +95,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             })
         }
     }
+    
     @IBAction func userLongPressed(_ sender: UILongPressGestureRecognizer) {
         if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTwitter) {
             guard let composeController = SLComposeViewController(forServiceType: SLServiceTypeTwitter) else {

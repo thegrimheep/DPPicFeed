@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Fresh_Squeezed_IPA" translatesAutoresizingMaskIntoConstraints="NO" id="Opg-hp-Ohx">
-                                <rect key="frame" x="10.333333333333343" y="66" width="393.33333333333337" height="433"/>
+                                <rect key="frame" x="10" y="76" width="393" height="515.33333333333337"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="aDW-mh-Txh" appends="YES" id="Map-3w-rOf"/>
@@ -31,8 +31,11 @@
                                 </connections>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpj-qj-4BI">
-                                <rect key="frame" x="10.333333333333343" y="28" width="393.33333333333337" height="30"/>
+                                <rect key="frame" x="10.333333333333343" y="28" width="393.33333333333337" height="40"/>
                                 <color key="backgroundColor" red="0.11231491137653282" green="0.23595618359937409" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="i6o-oU-xVM"/>
+                                </constraints>
                                 <state key="normal" title="POST">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -41,8 +44,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z2b-rJ-E71">
-                                <rect key="frame" x="10.333333333333343" y="699" width="393.33333333333337" height="30"/>
+                                <rect key="frame" x="10.333333333333343" y="791.33333333333337" width="393.33333333333337" height="40"/>
                                 <color key="backgroundColor" red="0.11231491139999999" green="0.23595618360000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="fTi-eB-CwE"/>
+                                </constraints>
                                 <state key="normal" title="FILTER">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -51,10 +57,10 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="D36-5h-yM3">
-                                <rect key="frame" x="0.0" y="499" width="414" height="0.0"/>
+                                <rect key="frame" x="0.0" y="491.33333333333337" width="414" height="100.00000000000011"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" id="ZP8-Dm-sxO"/>
+                                    <constraint firstAttribute="height" constant="100" id="WU6-Ud-iYG"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pwo-Kk-Enh">
                                     <size key="itemSize" width="122" height="105"/>
@@ -63,9 +69,11 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FilterCell" id="aUV-v0-R5O" customClass="FilterCell">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FilterCell" id="aUV-v0-R5O" customClass="FilterCell" customModule="DPPicFeed" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="-2.3333333333333335" width="122" height="105"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="122" height="105"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CCy-id-l2M">
@@ -96,7 +104,7 @@
                             <constraint firstItem="z2b-rJ-E71" firstAttribute="top" secondItem="Opg-hp-Ohx" secondAttribute="bottom" constant="200" id="Ppu-i8-DAB"/>
                             <constraint firstItem="D36-5h-yM3" firstAttribute="bottom" secondItem="Opg-hp-Ohx" secondAttribute="bottom" id="ZyG-JN-3gb"/>
                             <constraint firstItem="z2b-rJ-E71" firstAttribute="centerX" secondItem="Opg-hp-Ohx" secondAttribute="centerX" id="a8P-ra-Tc4"/>
-                            <constraint firstItem="D36-5h-yM3" firstAttribute="bottom" secondItem="Opg-hp-Ohx" secondAttribute="bottom" id="dge-vW-KGt"/>
+                            <constraint firstItem="Opg-hp-Ohx" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.7" id="bsc-aR-brg"/>
                             <constraint firstItem="z2b-rJ-E71" firstAttribute="width" secondItem="Opg-hp-Ohx" secondAttribute="width" id="kME-53-NWg"/>
                             <constraint firstItem="D36-5h-yM3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="kRk-27-2jl"/>
                             <constraint firstItem="Opg-hp-Ohx" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.95" id="qBe-AA-PhO"/>
@@ -106,7 +114,6 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Post" id="neJ-1r-Cot"/>
                     <connections>
-                        <outlet property="CollectionViewHeightConstraint" destination="ZP8-Dm-sxO" id="H95-PC-bzh"/>
                         <outlet property="collectionView" destination="D36-5h-yM3" id="IbF-XU-niA"/>
                         <outlet property="filterButtonTopConstraint" destination="Ppu-i8-DAB" id="Lf9-A0-ahM"/>
                         <outlet property="imageView" destination="Opg-hp-Ohx" id="jx7-Jl-kfP"/>
@@ -124,7 +131,7 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="944" y="-269"/>
+            <point key="canvasLocation" x="943.47826086956525" y="-269.02173913043481"/>
         </scene>
         <!--Gallery-->
         <scene sceneID="90R-pY-tEt">
