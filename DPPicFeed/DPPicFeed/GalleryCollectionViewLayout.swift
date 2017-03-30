@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 class GalleryCollectionViewLayout: UICollectionViewFlowLayout {
     var columns = 2 //THis is the number of items across
     let spacing: CGFloat = 1.0 //this this space between items

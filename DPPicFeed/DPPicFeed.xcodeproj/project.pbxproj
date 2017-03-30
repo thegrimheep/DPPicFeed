@@ -20,6 +20,7 @@
 		A1CC67EA1E8C2372004C8431 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CC67E91E8C2372004C8431 /* GalleryViewController.swift */; };
 		A1CC67EC1E8C277F004C8431 /* GalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CC67EB1E8C277F004C8431 /* GalleryCell.swift */; };
 		A1CC67EE1E8C37B8004C8431 /* GalleryCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CC67ED1E8C37B8004C8431 /* GalleryCollectionViewLayout.swift */; };
+		A1FD6C251E8D758B00F94376 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FD6C241E8D758B00F94376 /* FilterCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		A1CC67E91E8C2372004C8431 /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		A1CC67EB1E8C277F004C8431 /* GalleryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryCell.swift; sourceTree = "<group>"; };
 		A1CC67ED1E8C37B8004C8431 /* GalleryCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewLayout.swift; sourceTree = "<group>"; };
+		A1FD6C241E8D758B00F94376 /* FilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 			children = (
 				A1CC67EB1E8C277F004C8431 /* GalleryCell.swift */,
 				A1708B451E897F0300BDD951 /* Main.storyboard */,
+				A1FD6C241E8D758B00F94376 /* FilterCell.swift */,
 				A1708B4A1E897F0300BDD951 /* LaunchScreen.storyboard */,
 			);
 			name = Views;
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1FD6C251E8D758B00F94376 /* FilterCell.swift in Sources */,
 				A1708B5C1E8984F000BDD951 /* CloudKit.swift in Sources */,
 				A1CC67EA1E8C2372004C8431 /* GalleryViewController.swift in Sources */,
 				A1708B421E897F0300BDD951 /* AppDelegate.swift in Sources */,

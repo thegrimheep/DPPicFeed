@@ -9,17 +9,22 @@
 import UIKit
 
 class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    let filterNames = [FilterName.vintage, FilterName.blackAndWhite, FilterName.comicEffect, FilterName.makeDarker, FilterName.monoChrome]
+    
     let imagePicker = UIImagePickerController()
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var filterButtonTopConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var CollectionViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var postButtonBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         //This is override because we are overriding the superclass
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.collectionView.dataSource = self
     }
     
     
@@ -48,6 +53,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             
             Filters.orignalImage = originalImage
+            self.collectionView.reloadData()
             self.imageView.image = originalImage
             print(originalImage.imageOrientation)//added print statement
         }
@@ -78,53 +84,58 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         guard let image = self.imageView.image else {
             return
         }
-        let alertController = UIAlertController(title: "Filter", message: "Please select a filter", preferredStyle: .alert)
+        self.CollectionViewHeightConstraint.constant = 150
         
-        let blackAndWhiteAction = UIAlertAction(title: "Black and White", style: .default) { (action) in
-            Filters.filter(name: .blackAndWhite, image: image, completion: { (filteredImage) in
-                self.imageView.image = filteredImage
-            })
+        UIView.animate(withDuration: 0.5) { 
+            self.view.layoutIfNeeded()
         }
-        
-        let vintageAction = UIAlertAction(title: "Vintage", style: .default) { (action) in
-            Filters.filter(name: .vintage, image: image, completion: { (filteredImage) in
-                self.imageView.image = filteredImage
-            })
-        }
-        
-        let makeDarkerAction = UIAlertAction(title: "Darker", style: .default) { (action) in
-            Filters.filter(name: .makeDarker, image: image, completion: { (filteredImage) in
-                self.imageView.image = filteredImage
-            })
-        }
-        
-        let monoChromeAction = UIAlertAction(title: "Monochrome", style: .default) { (action) in
-            Filters.filter(name: .monoChrome, image: image, completion: { (filteredImage) in
-                self.imageView.image = filteredImage
-            })
-        }
-        
-        let comicEffectAction = UIAlertAction(title: "Comic", style: .default) { (action) in
-            Filters.filter(name: .comicEffect, image: image, completion: { (filteredImage) in
-                self.imageView.image = filteredImage
-            })
-        }
-        
-        let resetAction = UIAlertAction(title: "Reset Image", style: .destructive) { (action) in
-            self.imageView.image = Filters.orignalImage
-            }
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        
-        alertController.addAction(blackAndWhiteAction)
-        alertController.addAction(vintageAction)
-        alertController.addAction(makeDarkerAction)
-        alertController.addAction(monoChromeAction)
-        alertController.addAction(comicEffectAction)
-        alertController.addAction(resetAction)
-        alertController.addAction(cancelAction)
-        
-        self.present(alertController, animated: true, completion: nil)
+//        let alertController = UIAlertController(title: "Filter", message: "Please select a filter", preferredStyle: .alert)
+//        
+//        let blackAndWhiteAction = UIAlertAction(title: "Black and White", style: .default) { (action) in
+//            Filters.filter(name: .blackAndWhite, image: image, completion: { (filteredImage) in
+//                self.imageView.image = filteredImage
+//            })
+//        }
+//        
+//        let vintageAction = UIAlertAction(title: "Vintage", style: .default) { (action) in
+//            Filters.filter(name: .vintage, image: image, completion: { (filteredImage) in
+//                self.imageView.image = filteredImage
+//            })
+//        }
+//        
+//        let makeDarkerAction = UIAlertAction(title: "Darker", style: .default) { (action) in
+//            Filters.filter(name: .makeDarker, image: image, completion: { (filteredImage) in
+//                self.imageView.image = filteredImage
+//            })
+//        }
+//        
+//        let monoChromeAction = UIAlertAction(title: "Monochrome", style: .default) { (action) in
+//            Filters.filter(name: .monoChrome, image: image, completion: { (filteredImage) in
+//                self.imageView.image = filteredImage
+//            })
+//        }
+//        
+//        let comicEffectAction = UIAlertAction(title: "Comic", style: .default) { (action) in
+//            Filters.filter(name: .comicEffect, image: image, completion: { (filteredImage) in
+//                self.imageView.image = filteredImage
+//            })
+//        }
+//        
+//        let resetAction = UIAlertAction(title: "Reset Image", style: .destructive) { (action) in
+//            self.imageView.image = Filters.orignalImage
+//            }
+//        
+//        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+//        
+//        alertController.addAction(blackAndWhiteAction)
+//        alertController.addAction(vintageAction)
+//        alertController.addAction(makeDarkerAction)
+//        alertController.addAction(monoChromeAction)
+//        alertController.addAction(comicEffectAction)
+//        alertController.addAction(resetAction)
+//        alertController.addAction(cancelAction)
+//        
+//        self.present(alertController, animated: true, completion: nil)
     }
     
     func presentActionSheet() {
@@ -147,4 +158,27 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         self.present(actionSheetController, animated: true, completion: nil)
     }
+}
+
+extension HomeViewController : UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: FilterCell.identifier, for: indexPath) as! FilterCell
+        
+        guard let originalImage = Filters.orignalImage else {
+            return filterCell
+        }
+        guard let resizedImage = originalImage.resize(size: CGSize(width: 150, height: 150)) else {
+            return filterCell
+        }
+        let filterName = self.filterNames[indexPath.row]
+        
+        Filters.filter(name: filterName, image: originalImage) { (filteredImage) in
+            filterCell.imageView.image = filteredImage
+        }
+        return filterCell
+    }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return filterNames.count
+    }
+    
 }
