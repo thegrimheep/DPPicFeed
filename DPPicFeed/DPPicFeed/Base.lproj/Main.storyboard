@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Bi0-Zz-AoF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Bi0-Zz-AoF">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -95,31 +95,41 @@
                                 <rect key="frame" x="0.0" y="20" width="414" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eRQ-tM-GcE">
-                                    <size key="itemSize" width="146" height="131"/>
+                                    <size key="itemSize" width="204" height="267"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GalleryCell" id="oji-5I-cof" customClass="GalleryCell" customModule="DPPicFeed" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="146" height="131"/>
+                                        <rect key="frame" x="105" y="0.0" width="204" height="267"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="146" height="131"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="204" height="267"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DEf-xk-2SI">
-                                                    <rect key="frame" x="0.0" y="0.0" width="146" height="131"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="204" height="230.66666666666666"/>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCH-Xn-6mU">
+                                                    <rect key="frame" x="84" y="238.66666666666663" width="36" height="20.333333333333371"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="DEf-xk-2SI" firstAttribute="leading" secondItem="oji-5I-cof" secondAttribute="leading" id="KO1-Z7-6qN"/>
-                                            <constraint firstAttribute="trailing" secondItem="DEf-xk-2SI" secondAttribute="trailing" id="YIA-C8-GeS"/>
-                                            <constraint firstAttribute="bottom" secondItem="DEf-xk-2SI" secondAttribute="bottom" id="a5Q-m3-0EE"/>
-                                            <constraint firstItem="DEf-xk-2SI" firstAttribute="top" secondItem="oji-5I-cof" secondAttribute="top" id="uJY-qQ-eRP"/>
+                                            <constraint firstAttribute="trailing" secondItem="DEf-xk-2SI" secondAttribute="trailing" id="FCW-pD-8ap"/>
+                                            <constraint firstItem="GCH-Xn-6mU" firstAttribute="centerX" secondItem="oji-5I-cof" secondAttribute="centerX" id="LiF-f9-lOQ"/>
+                                            <constraint firstItem="DEf-xk-2SI" firstAttribute="leading" secondItem="oji-5I-cof" secondAttribute="leading" id="cyb-Cr-R89"/>
+                                            <constraint firstAttribute="bottom" secondItem="GCH-Xn-6mU" secondAttribute="bottom" constant="8" id="kg3-7R-7HA"/>
+                                            <constraint firstItem="DEf-xk-2SI" firstAttribute="top" secondItem="oji-5I-cof" secondAttribute="top" id="m60-DE-PG3"/>
+                                            <constraint firstItem="GCH-Xn-6mU" firstAttribute="top" secondItem="DEf-xk-2SI" secondAttribute="bottom" constant="8" id="zi5-yJ-ZmU"/>
                                         </constraints>
+                                        <size key="customSize" width="204" height="267"/>
                                         <connections>
+                                            <outlet property="dateLabel" destination="GCH-Xn-6mU" id="3F2-qL-PeC"/>
                                             <outlet property="imageView" destination="DEf-xk-2SI" id="NGH-Ma-rG6"/>
                                         </connections>
                                     </collectionViewCell>

@@ -8,23 +8,35 @@
 
 import UIKit
 
-enum FilterName : String {
-    case vintage = "CIPhotoEffectTransfer"
-    case blackAndWhite = "CIPhotoEffectMono"
-    case makeDarker = "CIColorPolynomial"
-    case monoChrome = "CIColorMonochrome"
-    case comicEffect = "CIColorPosterize"
-   
+class Filter {
+    static let shared = Filter()
+    var context = CIContext()
     
-    //add 3 more filters here
+    private init() {
+        let options = [kCIContextOutputColorSpace : NSNull()]
+        let eAGLContext = EAGLContext(api: .openGLES2)
+        self.context = CIContext(eaglContext: (eAGLContext)!, options: options)
+    }
 }
 
+    enum FilterName : String {
+        case vintage = "CIPhotoEffectTransfer"
+        case blackAndWhite = "CIPhotoEffectMono"
+        case makeDarker = "CIColorPolynomial"
+        case monoChrome = "CIColorMonochrome"
+        case comicEffect = "CIColorPosterize"
+        //add 3 more filters here
+    }
 typealias FilterCompletion = (UIImage?) -> ()
 
-class Filters {
+    
+//    static let shared
+    class Filters {
     static var orignalImage = UIImage()
     //Access this by calling Filters.originalImage
     class func filter(name: FilterName, image: UIImage, completion: @escaping FilterCompletion) {
+        
+        
         OperationQueue().addOperation {
             guard let filter = CIFilter(name: name.rawValue) else {
                 fatalError("Failed to create CIFileter")
@@ -32,18 +44,11 @@ class Filters {
             let coreImage = CIImage(image: image)
             filter.setValue(coreImage, forKey: kCIInputImageKey)
             
-            //GPU Context
-            let options = [kCIContextOutputColorSpace : NSNull()]
-            guard let eAGLContext = EAGLContext(api: .openGLES2) else {
-                fatalError("Failed to create EAGLContext.")
-            }
-            let ciContext = CIContext(eaglContext: eAGLContext, options: options)
-            
             //Get the final Image for the GPU
             guard let outputImage = filter.outputImage else {
                 fatalError("Failed to get output image from filter")
             }
-            if let cgImage = ciContext.createCGImage(outputImage, from: outputImage.extent) {
+            if let cgImage = Filter.shared.context.createCGImage(outputImage, from: outputImage.extent) {
                 let orientation = image.imageOrientation
                 let scale = image.scale
                 

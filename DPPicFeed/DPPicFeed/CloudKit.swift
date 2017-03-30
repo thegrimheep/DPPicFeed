@@ -43,7 +43,7 @@ class CloudKit {
     }
     
     func getPosts(completion: @escaping PostsCompletion) {
-        let postQuery = CKQuery(recordType: "Posts", predicate: NSPredicate(value: true))
+        let postQuery = CKQuery(recordType: "Post", predicate: NSPredicate(value: true))
         self.privateDatabase.perform(postQuery, inZoneWith: nil) { (records, error) in
             if error != nil {
                 OperationQueue.main.addOperation {
@@ -53,10 +53,12 @@ class CloudKit {
             if let records = records {
                 var posts = [Post]()
                 for record in records {
+                    let date = record.creationDate
                     if let asset = record["image"] as? CKAsset {
                         let path = asset.fileURL.path
+                        
                         if let image = UIImage(contentsOfFile: path) {
-                            let newPost = Post(image: image)
+                            let newPost = Post(image: image, creationDate: date)
                             posts.append(newPost)
                         }
                     }

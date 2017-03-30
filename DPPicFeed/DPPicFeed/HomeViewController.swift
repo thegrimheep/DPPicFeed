@@ -62,13 +62,13 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
    
     @IBAction func postButtonPressed(_ sender: Any) {
         if let image = self.imageView.image {
-            let newPost = Post(image: image)
+            let newPost = Post(image: image, creationDate: nil)
             CloudKit.shared.save(post: newPost, completion: { (success) in
                 if success {
-                    print("Saved Post successfully to CLoudKit")
+                    print("Saved Post successfully to CloudKit")
                 }
                 else {
-                    print("We did NOT Successfully save to CLoutKit...")
+                    print("We did NOT Successfully save to CloutKit...")
                 }
             })
         }
