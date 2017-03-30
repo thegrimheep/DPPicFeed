@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Social
 
 class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     let filterNames = [FilterName.vintage, FilterName.blackAndWhite, FilterName.comicEffect, FilterName.makeDarker, FilterName.monoChrome]
@@ -25,6 +26,19 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.collectionView.dataSource = self
+    }
+    
+    func setupGalleryDelegate() {
+        if let tabBarController = self.tabBarController {
+            guard let viewControllers = tabBarController.viewControllers else {
+                return
+            }
+            guard let gallerController = viewControllers[1] as? GalleryViewController else {
+                return
+            }
+            gallerController.delegate = self
+            setupGalleryDelegate()
+        }
     }
     
     
@@ -79,6 +93,15 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             })
         }
     }
+    @IBAction func userLongPressed(_ sender: UILongPressGestureRecognizer) {
+        if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTwitter) {
+            guard let composeController = SLComposeViewController(forServiceType: SLServiceTypeTwitter) else {
+                return
+            }
+            composeController.add(self.imageView.image)
+            self.present(composeController, animated: true, completion: nil)
+        }
+    }
     
     @IBAction func filterButtonPressed(_ sender: Any) {
         guard let image = self.imageView.image else {
@@ -89,6 +112,10 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         UIView.animate(withDuration: 0.5) { 
             self.view.layoutIfNeeded()
         }
+        
+        
+        
+        
 //        let alertController = UIAlertController(title: "Filter", message: "Please select a filter", preferredStyle: .alert)
 //        
 //        let blackAndWhiteAction = UIAlertAction(title: "Black and White", style: .default) { (action) in
@@ -180,5 +207,13 @@ extension HomeViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return filterNames.count
     }
-    
+}
+
+extension HomeViewController: GalleryViewControllerDelegate {
+    func galleryController(didSelect image: UIImage) {
+        self.imageView.image = image
+        self.tabBarController?.selectedIndex = 0
+        //this allows the selected photo in the gallery to take you back to the homeview.
+        //This is passing information back to the view
+    }
 }
