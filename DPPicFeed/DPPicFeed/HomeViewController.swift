@@ -80,31 +80,6 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
         let alertController = UIAlertController(title: "Filter", message: "Please select a filter", preferredStyle: .alert)
         
-//        class AllTheFilters {
-//            static let selectedFilter = UIAlertAction(title: "FilterName", style: .default) { (action) in
-//                Filters.filter(name: FilterName(rawValue: "FilterName"), image: image, completion: { (filteredImage) in
-//                    self.imageView = filteredImage
-//                })
-//        }
-        
-//        func allTheFilters(name: String, title: String, filteredName: Filters.Filtername) -> UIAlertAction {
-//            let name = UIAlertAction(title: title, style: .default) { (action) in
-//                Filters.filter(name: filteredName, image: image, completion: { (filterImage) in
-//                    self.imageView.image = filterImage
-//                    
-//                })
-//            }
-//            return name
-//        }
-//        
-//        switch Filters.filterName {
-//        case <#pattern#>:
-//            <#code#>
-//        default:
-//            <#code#>
-//        }
-
-        
         let blackAndWhiteAction = UIAlertAction(title: "Black and White", style: .default) { (action) in
             Filters.filter(name: .blackAndWhite, image: image, completion: { (filteredImage) in
                 self.imageView.image = filteredImage
