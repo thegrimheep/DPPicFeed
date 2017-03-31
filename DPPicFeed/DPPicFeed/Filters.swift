@@ -12,6 +12,7 @@ class Filter {
     static let shared = Filter()
     var context = CIContext()
     
+    //This is the GPU Context, this is a singleton. There is only a single instance
     private init() {
         let options = [kCIContextOutputColorSpace : NSNull()]
         let eAGLContext = EAGLContext(api: .openGLES2)
@@ -32,7 +33,7 @@ typealias FilterCompletion = (UIImage?) -> ()
     
 //    static let shared
     class Filters {
-    static var orignalImage = UIImage()
+        static var orignalImage : UIImage?
     //Access this by calling Filters.originalImage
     class func filter(name: FilterName, image: UIImage, completion: @escaping FilterCompletion) {
         
