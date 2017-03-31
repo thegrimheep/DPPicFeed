@@ -57,35 +57,42 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="D36-5h-yM3">
-                                <rect key="frame" x="0.0" y="491.33333333333337" width="414" height="100.00000000000011"/>
+                                <rect key="frame" x="0.0" y="441.33333333333337" width="414" height="150.00000000000011"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="WU6-Ud-iYG"/>
+                                    <constraint firstAttribute="height" constant="150" id="WU6-Ud-iYG"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pwo-Kk-Enh">
-                                    <size key="itemSize" width="122" height="105"/>
+                                    <size key="itemSize" width="122" height="113"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FilterCell" id="aUV-v0-R5O" customClass="FilterCell" customModule="DPPicFeed" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="-2.3333333333333335" width="122" height="105"/>
+                                        <rect key="frame" x="0.0" y="18.666666666666668" width="122" height="113"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="122" height="105"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="122" height="113"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CCy-id-l2M">
-                                                    <rect key="frame" x="0.0" y="0.0" width="122" height="105"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="122" height="103"/>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMl-xa-aQM">
+                                                    <rect key="frame" x="40" y="102" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </view>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="CCy-id-l2M" secondAttribute="trailing" id="0wl-Be-88Q"/>
                                             <constraint firstItem="CCy-id-l2M" firstAttribute="leading" secondItem="aUV-v0-R5O" secondAttribute="leading" id="bKW-w6-mtO"/>
                                             <constraint firstItem="CCy-id-l2M" firstAttribute="top" secondItem="aUV-v0-R5O" secondAttribute="top" id="nOv-ru-qAi"/>
-                                            <constraint firstAttribute="bottom" secondItem="CCy-id-l2M" secondAttribute="bottom" id="oHG-Os-lrh"/>
+                                            <constraint firstAttribute="bottom" secondItem="CCy-id-l2M" secondAttribute="bottom" constant="10" id="oHG-Os-lrh"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="imageView" destination="CCy-id-l2M" id="71k-w7-2NW"/>
@@ -164,10 +171,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DEf-xk-2SI">
-                                                    <rect key="frame" x="0.0" y="0.0" width="204" height="230.66666666666666"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="204" height="238.66666666666666"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCH-Xn-6mU">
-                                                    <rect key="frame" x="84" y="238.66666666666663" width="36" height="20.333333333333371"/>
+                                                    <rect key="frame" x="84" y="246.66666666666663" width="36" height="20.333333333333371"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -178,7 +185,7 @@
                                             <constraint firstAttribute="trailing" secondItem="DEf-xk-2SI" secondAttribute="trailing" id="FCW-pD-8ap"/>
                                             <constraint firstItem="GCH-Xn-6mU" firstAttribute="centerX" secondItem="oji-5I-cof" secondAttribute="centerX" id="LiF-f9-lOQ"/>
                                             <constraint firstItem="DEf-xk-2SI" firstAttribute="leading" secondItem="oji-5I-cof" secondAttribute="leading" id="cyb-Cr-R89"/>
-                                            <constraint firstAttribute="bottom" secondItem="GCH-Xn-6mU" secondAttribute="bottom" constant="8" id="kg3-7R-7HA"/>
+                                            <constraint firstAttribute="bottom" secondItem="GCH-Xn-6mU" secondAttribute="bottom" id="kg3-7R-7HA"/>
                                             <constraint firstItem="DEf-xk-2SI" firstAttribute="top" secondItem="oji-5I-cof" secondAttribute="top" id="m60-DE-PG3"/>
                                             <constraint firstItem="GCH-Xn-6mU" firstAttribute="top" secondItem="DEf-xk-2SI" secondAttribute="bottom" constant="8" id="zi5-yJ-ZmU"/>
                                         </constraints>
